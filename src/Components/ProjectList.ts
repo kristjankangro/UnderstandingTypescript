@@ -1,3 +1,5 @@
+/// <reference path="ComponentBase.ts"/>
+/// <reference path="../decorators/AutoBind.ts"/>
 namespace App {
     export class ProjectList extends Component<HTMLDivElement, HTMLElement>
         implements DragTarget {
