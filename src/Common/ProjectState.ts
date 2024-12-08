@@ -1,4 +1,4 @@
-import {Project, ProjectStatus} from "../Models/Project.js";
+import {Project, ProjectStatus} from "../Models/Project";
 
 type Listener<T> = (items: T[]) => void;
 
@@ -52,5 +52,5 @@ class ProjectState extends State<Project> {
         }
     }
 }
-
+console.log("Runs once ProjectState.getInstance() no matter how many imports")
 export const projectState = ProjectState.getInstance();
