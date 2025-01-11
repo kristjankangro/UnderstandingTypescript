@@ -8,7 +8,7 @@ function add(a: number, b: number, printResult: boolean, phrase: string): number
     return result;
 }
 
-let a = 5;
+let a: number = 5;
 let b = 5.7;
 const printResult = true;
 let phrase = "Result is: ";
