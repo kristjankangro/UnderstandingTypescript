@@ -1,13 +1,16 @@
-
 console.log("Starting application process");
 
-function add(a: number, b: number ): number {
-    // if (typeof a !== "number" && typeof b !== "number")
-    //     throw new Error("Expected a number");
-    return a + b;
+function add(a: number, b: number, printResult: boolean, phrase: string): number {
+    const result = a + b;
+    if (printResult) {
+        console.log(`${phrase} ${result}`);
+    }
+    return result;
 }
 
 let a = 5;
 let b = 5.7;
+const printResult = true;
+let phrase = "Result is: ";
 
-console.log(add(a, b));
+add(a, b, printResult, phrase);
