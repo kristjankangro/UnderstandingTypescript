@@ -2,6 +2,8 @@
 console.log("Starting application process");
 
 function add(a: number, b: number ): number {
+    // if (typeof a !== "number" && typeof b !== "number")
+    //     throw new Error("Expected a number");
     return a + b;
 }
 
