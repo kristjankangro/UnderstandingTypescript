@@ -1,17 +1,31 @@
 {
   "compilerOptions": {
-    "target": "es5",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "module": "commonjs",                                /* Specify what module code is generated. */
-    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
-    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-    "strict": true,                                      /* Enable all strict type-checking options. */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "target": "es6",
+    /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "module": "commonjs",
+    "lib": [
+      "dom",
+      "es6",
+      "DOM.Iterable",
+      "ScriptHost"
+    ],
+    //    "allowJs": true,
+    //    "checkJs": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "forceConsistentCasingInFileNames": true,    /* Ensure that casing is correct in imports. */
+    "strict": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "noEmitOnError": false,
+    "preserveValueImports": false
+    
   },
   "exclude": [
     "*.dev.ts",
     "node_modules"
-  ],
-  "files": [
-    "app.ts", "analytics.ts"
   ]
 }
