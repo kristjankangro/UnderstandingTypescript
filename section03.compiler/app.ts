@@ -1,15 +1,3 @@
-let userInput : unknown;
-let userName :string;
+const userName = "John Smith 2";
 
-
-userInput = 6;
-userInput = "ssss";
-
-if (typeof(userInput) === "string") userName = userInput;
-
-//nevertype
-let generateError = (mess: string, code : number): never => {
-    throw {message: mess, errorCode : code}
-}
-
-generateError("Error", 500);
+console.log(userName);
