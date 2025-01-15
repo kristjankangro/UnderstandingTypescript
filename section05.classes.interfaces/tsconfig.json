@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "module": "commonjs",
+    "module": "CommonJS",
     "lib": [
       "dom",
       "es6",
@@ -11,7 +11,8 @@
     ],
     //    "allowJs": true,
     //    "checkJs": true,
-    "outDir": "./dist",
+	  "removeComments": true,
+	  "outDir": "./dist",
     "rootDir": "./src",
     "sourceMap": true,
     "esModuleInterop": true,
