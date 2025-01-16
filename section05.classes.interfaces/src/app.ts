@@ -1,41 +1,5 @@
-class Department {
-	// public name: string;
-	private employees: string[] = [];
-
-	constructor(private readonly id: number, public name: string) {
-	}
-
-	describe(this: Department) {
-		console.log(this.name);
-	}
-
-	addEmployee(employee: string) {
-		this.employees.push(employee);
-	}
-
-
-	printEmployeeCount() {
-		console.log(this.employees.length);
-		console.log(this.employees);
-	}
-}
-
-class ITDepartment extends Department {
-	constructor(id: number, public admins: string[]) {
-		super(id, "IT osakond");
-	}
-}
-
-class AccountingDepartment extends Department {
-	
-	constructor(id: number, private accountants: string[]) {
-		super(id, "AccountingDepartment");
-	}
-	
-	getFirstAccountatn(): string {
-		return this.accountants[0];
-	}
-}
+import {Department} from "./department";
+import {ITDepartment} from "./ITDepartment";
 
 console.log("Starting application process");
 
