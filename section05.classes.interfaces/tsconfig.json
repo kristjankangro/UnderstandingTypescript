@@ -1,32 +1,24 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "module": "es2015",
-    "lib": [
-      "dom",
-      "es6",
-      "DOM.Iterable",
-      "ScriptHost"
-    ],
-    //    "allowJs": true,
-    //    "checkJs": true,
-	  "removeComments": true,
-	  "outDir": "./dist",
-    "rootDir": "./src",
-    "sourceMap": true,
-    "esModuleInterop": true,
-    /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
-    "forceConsistentCasingInFileNames": true,    /* Ensure that casing is correct in imports. */
-    "strict": true,
-    "noImplicitAny": false,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
-    "noEmitOnError": false,
-    "preserveValueImports": false
-    
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
-  "exclude": [
-    "*.dev.ts",
-    "node_modules"
-  ]
+  "include": ["src"]
 }
