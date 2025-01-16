@@ -1,12 +1,13 @@
 export class Department {
-    // public name: string;
+    
+    static fiscalYear: number = 2020
     protected employees: string[] = [];
 
     constructor(private readonly id: number, public name: string) {
     }
     
     describe(this: Department) {
-        console.log(this.id + this.name);
+        console.log(this.id + this.name)
     }
 
     addEmployee(employee: string) {
