@@ -1,6 +1,9 @@
 import {Department} from "./Department.ts";
 
 export class AccountingDepartment extends Department {
+    describe() {
+            console.log(`AccountingDepartment id ${this.id}`);
+    }
 
     private _lastReport: string ="";
     

@@ -1,13 +1,12 @@
-import {Department} from "./src/department";
 import {ITDepartment} from "./src/ITDepartment";
 import {AccountingDepartment} from "./src/accountingDepartment";
 import {Utils} from "./src/utils/utils";
+import {Singleton} from "./src/Singleton";
 
 console.log("Starting application process");
 
-const MyDepartment = new Department(1, "John Doe");
+const MyDepartment = new ITDepartment(1, ["John Doe"]);
 console.log(MyDepartment);
-
 
 MyDepartment.describe();
 MyDepartment.addEmployee("3 Doe");
@@ -26,3 +25,8 @@ accounting.addReport("kuki");
 
 console.log(accounting.lastReport) ;
 console.log(Utils.GetStr()) ;
+
+
+const singleton = Singleton.getInstance();
+const s2 = Singleton.getInstance();
+console.log(singleton,s2);
