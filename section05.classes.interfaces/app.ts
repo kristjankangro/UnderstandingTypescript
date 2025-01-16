@@ -1,6 +1,7 @@
 import {Department} from "./src/department";
 import {ITDepartment} from "./src/ITDepartment";
 import {AccountingDepartment} from "./src/accountingDepartment";
+import {Utils} from "./src/utils/utils";
 
 console.log("Starting application process");
 
@@ -24,3 +25,4 @@ console.log(accounting.lastReport) ;
 accounting.addReport("kuki");
 
 console.log(accounting.lastReport) ;
+console.log(Utils.GetStr()) ;

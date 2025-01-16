@@ -8,6 +8,10 @@ export class AccountingDepartment extends Department {
         if (this._lastReport === null) { throw Error('No report for Department'); }
         return this._lastReport;
     }
+    
+    set lastReport(value: string) {
+        this._lastReport = value;
+    }
     constructor(id: number, private reports: string[]) {
         super(id, "AccountingDepartment");
     }
