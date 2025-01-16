@@ -12,16 +12,28 @@ class Department {
 	addEmployee(employee: string) {
 		this.employees.push(employee);
 	}
-	
+
 
 	printEmployeeCount() {
 		console.log(this.employees.length);
 		console.log(this.employees);
 	}
 }
+
 class ITDepartment extends Department {
-	constructor(id: number){
+	constructor(id: number, public admins: string[]) {
 		super(id, "IT osakond");
+	}
+}
+
+class AccountingDepartment extends Department {
+	
+	constructor(id: number, private accountants: string[]) {
+		super(id, "AccountingDepartment");
+	}
+	
+	getFirstAccountatn(): string {
+		return this.accountants[0];
 	}
 }
 
@@ -38,6 +50,6 @@ d.addEmployee("1 Doe");
 
 d.printEmployeeCount();
 
-let d2 = new ITDepartment(2);
+let d2 = new ITDepartment(2, ["max"]);
 
 d2.describe();
