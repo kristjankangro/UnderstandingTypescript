@@ -1,32 +1,49 @@
-import {ITDepartment} from "./src/ITDepartment";
-import {AccountingDepartment} from "./src/accountingDepartment";
-import {Utils} from "./src/utils/utils";
-import {Singleton} from "./src/Singleton";
+// interface IPerson {
+//     email: string;
+//     birthYear: number;
+//
+//     greet(mess: string): string;
+// }
 
-console.log("Starting application process");
+// type Person = {
+//     email: string;
+//     birthYear: number;
+//
+//     greet(mess: string): string;
+// }
 
-const MyDepartment = new ITDepartment(1, ["John Doe"]);
-console.log(MyDepartment);
+interface IXd {
+    readonly xxx: string;
+    output?: string; //optional parameter
+}
 
-MyDepartment.describe();
-MyDepartment.addEmployee("3 Doe");
-MyDepartment.addEmployee("1 Doe");
-// let dCopy = { name: "ggg",describe: d.describe };
-// dCopy.describe();
+interface IGreetable extends IXd {
+    email: string;
+    
 
-MyDepartment.printEmployeeCount();
+    greet(mess: string): string;
+}
 
-const d2 = new ITDepartment(2, ["max"]);
-d2.describe();
+// type AddFn = (a: number, b: number) => number; //function type
+interface AddFn {
+    (a: number, b: number): number;
+}
 
-const accounting = new AccountingDepartment(3, []);
-console.log(accounting.lastReport) ;
-accounting.addReport("kuki");
-
-console.log(accounting.lastReport) ;
-console.log(Utils.GetStr()) ;
+let add : AddFn = (a, b) => a + b;
 
 
-const singleton = Singleton.getInstance();
-const s2 = Singleton.getInstance();
-console.log(singleton,s2);
+console.log(add(1,6))
+class Person implements IGreetable {
+    xxx: string;
+
+    constructor(public email: string, public birthYear: number, x: string) {
+        this.xxx = x;
+    }
+
+    greet(mess: string): string {
+        return `${mess} ${this.email} ${this.birthYear} greetings`;
+    }
+}
+
+const user: Person = new Person("kuki@email.com", 1978, "ass");
+console.log(user.greet("incoming ..."));
