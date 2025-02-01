@@ -6,10 +6,10 @@ function Logger(log: string) {
 }
 
 function WithTemplate(template: string, hookId: string) {
-	return function<T extends {new(...args: any[]) : {name:string}}> (
+	return function <T extends { new(...args: any[]): { name: string } }>(
 		origConstructor: T) {
-		
-		return class extends origConstructor{
+
+		return class extends origConstructor {
 			constructor(..._: any[]) {
 				super();
 				console.log("rendering template")
@@ -82,3 +82,33 @@ class Product {
 
 const product = new Product("Book", 19)
 const product2 = new Product("Book2", 29)
+
+function Autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
+	const origMethod = descriptor.value;
+	const propertyDescriptor: PropertyDescriptor = {
+		configurable: true,
+		enumerable: false,
+		get(){
+			const boundFn = origMethod.bind(this); //this is binding
+			return boundFn;
+		}
+	};
+	return propertyDescriptor;
+}
+
+class Printer {
+	message: string = "this works";
+
+	@Autobind
+	showMessage() {
+		console.log(this.message)
+	}
+}
+
+const p = new Printer();
+p.showMessage();
+
+const btn = document.querySelector("button");
+
+// btn.addEventListener("click", p.showMessage.bind(p));
+btn.addEventListener("click", p.showMessage);
