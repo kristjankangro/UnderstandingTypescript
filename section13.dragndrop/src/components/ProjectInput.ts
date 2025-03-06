@@ -1,4 +1,5 @@
 import {autobind} from "../Common/autobind.ts";
+import {Validatable, validate} from "../Common/validation.ts";
 
 export class ProjectInput {
 	templateEl: HTMLTemplateElement;
@@ -23,26 +24,29 @@ export class ProjectInput {
 		this.attach();
 	}
 
-	private gatherUserInput():[string, string, number] | undefined {
+	private gatherUserInput(): [string, string, number] | undefined {
+
 		const title = this.titleInputEl.value;
 		const desc = this.descInputEl.value;
 		const people = this.peopleInputEl.value;
-		if (title.trim().length === 0
-			|| desc.trim().length === 0
-			|| people.trim().length === 0) {
+
+		const titleInput: Validatable = {value: title, required: true, minLength: 5};
+		const descInput: Validatable = {value: desc, required: true, minLength: 5};
+		const peopleInput: Validatable = {value: +people, required: true, min: 1};
+		if (!(validate(titleInput) && validate(descInput) && validate(peopleInput))) {
 			alert("Please enter a valid data.");
 			return;
 		}
-		
+
 		return [title, desc, +people];
 	}
-	
+
 	private clearInputs(): void {
 		this.titleInputEl.value = "";
 		this.descInputEl.value = "";
 		this.peopleInputEl.value = "";
 	}
-	
+
 	@autobind
 	private submitHandler(evt: Event): void {
 		evt.preventDefault();
